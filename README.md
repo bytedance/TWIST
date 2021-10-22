@@ -184,7 +184,7 @@ TWIST is a novel self-supervised representation learning method by classifying l
 ## Single-node Training
 ResNet-50 (requires 8 GPUs, Top-1 Linear 72.6%)
 ```
-python3 -m torch.distributed.launch --nproc_per_node=8 train.py \
+python3 -m torch.distributed.launch --nproc_per_node=8 --use_env train.py \
   --data-path ${DATAPATH} \
   --output_dir ${OUTPUT} \
   --aug barlow \
@@ -196,7 +196,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 train.py \
 ## Multi-node Training
 ResNet-50 (requires 16 GPUs spliting over 2 nodes for multi-crop training, Top-1 Linear 75.5%)
 ```
-python3 -m torch.distributed.launch --nproc_per_node=8 \
+python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --nnodes=${WORKER_NUM} \
   --node_rank=${MACHINE_ID} \
   --master_addr=${HOST} \
@@ -207,7 +207,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 \
 
 ResNet-50w2 (requires 32 GPUs spliting over 4 nodes for multi-crop training, Top-1 Linear 77.7%)
 ```
-python3 -m torch.distributed.launch --nproc_per_node=8 \
+python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --nnodes=${WORKER_NUM} \
   --node_rank=${MACHINE_ID} \
   --master_addr=${HOST} \
@@ -223,7 +223,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 \
  
 DeiT-S (requires 16 GPUs spliting over 2 nodes for multi-crop training, Top-1 Linear 75.6%)
 ```
-python3 -m torch.distributed.launch --nproc_per_node=8 \
+python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --nnodes=${WORKER_NUM} \
   --node_rank=${MACHINE_ID} \
   --master_addr=${HOST} \
@@ -250,7 +250,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 \
 
 ViT-B (requires 32 GPUs spliting over 4 nodes for multi-crop training, Top-1 Linear 77.3%)
 ```
-python3 -m torch.distributed.launch --nproc_per_node=8 \
+python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --nnodes=${WORKER_NUM} \
   --node_rank=${MACHINE_ID} \
   --master_addr=${HOST} \
