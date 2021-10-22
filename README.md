@@ -1,4 +1,4 @@
-# TWIST: Self-Supervised Learning by Estimating Twin Class Distribution
+# TWIST: Self-Supervised Learning by Estimating Twin Class Distributions
 
 <p align="center">
     <img src="arch.png" alt="Architecture" width="800"/>
@@ -34,7 +34,7 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <th colspan="5">download</th>
   </tr>
   <tr>
-    <th colspan='9'> Model with multi-crop and self-label </th>
+    <th colspan='9'> Model with multi-crop and self-labeling </th>
   </tr>
   <tr>
     <td>ResNet-50</td>
