@@ -80,7 +80,7 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <td><a href="https://drive.google.com/file/d/1Cq_boQ-WasFK9D2DmA2rq6XRWZzm9nUC/view?usp=sharing">log</a></td>
     <td><a href="https://drive.google.com/file/d/1qjSgIDmxMPgoP7ReW_fdPwxETOU3c4rW/view?usp=sharing">eval logs</a></td>
   </tr>
-    <th colspan='9'> Model without multi-crop and self-label </th>
+    <th colspan='9'> Model without multi-crop and self-labeling </th>
   <tr>
     <td>ResNet-50</td>
     <td>24M</td>
