@@ -15,7 +15,7 @@ Codes and pretrained models for [TWIST](https://arxiv.org/abs/2110.07402):
 ```
 
 <p style="text-align:justify; text-justify:inter-ideograph;">
-TWIST is a novel self-supervised representation learning method by classifying large-scale unlabeled datasets in an end-to-end way. We employ a siamese network terminated by a softmax operation to produce twin class distributions of two augmented images.  Without supervision, we enforce the class distributions of different augmentations to be consistent. In the meantime,  we regularize the class distributions to make them sharp and diverse. TWIST can naturally avoid the trivial solutions without specific designs such as asymmetric network, stop-gradient operation, or momentum encoder.
+TWIST is a novel self-supervised representation learning method by classifying large-scale unlabeled datasets in an end-to-end way. We employ a siamese network terminated by a softmax operation to produce twin class distributions of two augmented images.  Without supervision, we enforce the class distributions of different augmentations to be consistent. In the meantime,  we regularize the class distributions to make them sharp and diverse. TWIST can naturally avoid trivial solutions without specific designs such as asymmetric network, stop-gradient operation, or momentum encoder.
 </p>
 
 <p align="center">
@@ -312,7 +312,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 evaluate_vitlinear.py \
 
 #### Command for training semi-supervised classification
 
-1% Percent (61.5%)
+1 Percent (61.5%)
 ```
 python3 evaluate.py ${DATAPATH} ${MODELPATH} \
   --weights finetune \
@@ -323,7 +323,7 @@ python3 evaluate.py ${DATAPATH} ${MODELPATH} \
   --epochs 20 \
   --backbone 'resnet50'
 ```
-10% Percent (71.7%)
+10 Percent (71.7%)
 ```
 python3 evaluate.py ${DATAPATH} ${MODELPATH} \
   --weights finetune \
@@ -335,7 +335,7 @@ python3 evaluate.py ${DATAPATH} ${MODELPATH} \
   --backbone 'resnet50'
 ```
 
-100% Percent (78.4%)
+100 Percent (78.4%)
 ```
 python3 evaluate.py ${DATAPATH} ${MODELPATH} \
   --weights finetune \
