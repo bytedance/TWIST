@@ -15,7 +15,7 @@ Codes and pretrained models for [TWIST](https://arxiv.org/abs/2110.07402):
 ```
 
 <p style="text-align:justify; text-justify:inter-ideograph;">
-TWIST is a novel self-supervised representation learning method by classifying large-scale unlabeled datasets in an end-to-end way. We employ a siamese network terminated by a softmax operation to produce twin class distributions of two augmented images.  Without supervision, we enforce the class distributions of different augmentations to be consistent. In the meantime,  we regularize the class distributions to make them sharp and diverse. TWIST can naturally avoid trivial solutions without specific designs such as asymmetric network, stop-gradient operation, or momentum encoder.
+TWIST is a novel self-supervised representation learning method by classifying large-scale unlabeled datasets in an end-to-end way. We employ a siamese network terminated by a softmax operation to produce twin class distributions of two augmented images.  Without supervision, we enforce the class distributions of different augmentations to be consistent. In the meantime,  we regularize the class distributions to make them sharp and diverse. TWIST can naturally avoid trivial solutions without specific designs such as asymmetric network, stop-gradient operation, or momentum encoder
 </p>
 
 <p align="center">
