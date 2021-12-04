@@ -1,5 +1,7 @@
 # TWIST: Self-Supervised Learning by Estimating Twin Class Distributions
 
+## Updates
+- 12/4/2022: The performances of ViT-S (DeiT-S) and ViT-B are improved (+0.6 and +1.1 respectively), which is achieved by changing hyper-parameters (reduce the batch-size from 2048 to 1024, and change the drop path rate from 0.0 to 0.1 for ViT-B).
 <p align="center">
     <img src="arch.png" alt="Architecture" width="800"/>
 </p>
@@ -22,8 +24,6 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <img src="formula.png" alt="formula" width="600"/>
 </p>
 
-## Updates
-- 12/4/2022: The performances of ViT-S (DeiT-S) and ViT-B are improved (+0.6 and +1.1 respectively), which is achieved by changing hyper-parameters (reduce the batch-size from 2048 to 1024, and change the drop path rate from 0.0 to 0.1 for ViT-B).
 ## Models and Results
 
 #### Main Models for Representation Learning
