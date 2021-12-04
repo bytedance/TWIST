@@ -22,6 +22,8 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <img src="formula.png" alt="formula" width="600"/>
 </p>
 
+## Updates
+- 12/4/2022: The performances of ViT-S (DeiT-S) and ViT-B are improved (+0.6 and +1.1 respectively), which is achieved by changing hyper-parameters (reduce the batch-size from 2048 to 1024, and change the drop path rate from 0.0 to 0.1 for ViT-B).
 ## Models and Results
 
 #### Main Models for Representation Learning
@@ -62,23 +64,23 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <td>DeiT-S</td>
     <td>21M</td>
     <td>300</td>
-    <td>75.6%</td>
-    <td><a href="https://drive.google.com/file/d/1jfOciZQwNjqZOpqy7iedbzrI08W3L05r/view?usp=sharing">backbone only</a></td>
-    <td><a href="https://drive.google.com/file/d/1EQKFRyO8iQ0Ibb-jaVcqRynwzam5jyhg/view?usp=sharing">full ckpt</a></td>
-    <td><a href="https://drive.google.com/file/d/1ye_zm4rv0AMTB0uySmQqk_qIRcczscop/view?usp=sharing">args</a></td>
-    <td><a href="https://drive.google.com/file/d/1atp5OHilqQD9t4v4iLBrSQkLdBtFmMR-/view?usp=sharing">log</a></td>
-    <td><a href="https://drive.google.com/file/d/1LhRCGweXlhmQv3HdDWsIK8FYQNhnwqmK/view?usp=sharing">eval logs</a></td>
+    <td>76.2%</td>
+    <td><a href="https://drive.google.com/file/d/1u6i6ZSCSZAI07Ls-qkG0hAzCEH_Rhk6r/view?usp=sharing">backbone only</a></td>
+    <td><a href="https://drive.google.com/file/d/1quoEo6gMCAL9d6kN5FH2gTgxAeCsg-LD/view?usp=sharing">full ckpt</a></td>
+    <td><a href="https://drive.google.com/file/d/1zQg-k9vGX5oBR89a6mAmVicJyw3hk7HB/view?usp=sharing">args</a></td>
+    <td><a href="https://drive.google.com/file/d/1rv8ZqNvHHX3rw8cOooLEliMX1anfk4Ei/view?usp=sharing">log</a></td>
+    <td><a href="https://drive.google.com/file/d/1IHQilfKDUx_AD7tPSqSItjg9vErN-OxE/view?usp=sharing">eval logs</a></td>
   </tr>
   <tr>
     <td>ViT-B</td>
     <td>86M</td>
     <td>300</td>
-    <td>77.3%</td>
-    <td><a href="https://drive.google.com/file/d/1FCe7TZ2P0f-hOwzL_PbegVQX6PYyaaFn/view?usp=sharing">backbone only</a></td>
-    <td><a href="https://drive.google.com/file/d/1OlvWDBkoHgWyza3OcKxo6JdPVrEf3j9w/view?usp=sharing">full ckpt</a></td>
-    <td><a href="https://drive.google.com/file/d/1XKkXBpbJpWkO2hoyxtuKl2ssQGcZ6JrU/view?usp=sharing">args</a></td>
-    <td><a href="https://drive.google.com/file/d/1Cq_boQ-WasFK9D2DmA2rq6XRWZzm9nUC/view?usp=sharing">log</a></td>
-    <td><a href="https://drive.google.com/file/d/1qjSgIDmxMPgoP7ReW_fdPwxETOU3c4rW/view?usp=sharing">eval logs</a></td>
+    <td>78.4%</td>
+    <td><a href="https://drive.google.com/file/d/15xjyr-g-tYYqBcPhSbhugLWZA06l_DM4/view?usp=sharing">backbone only</a></td>
+    <td><a href="https://drive.google.com/file/d/1a1zQHfRTEANIX3RRKSycdeT0T3LpwcV9/view?usp=sharing">full ckpt</a></td>
+    <td><a href="https://drive.google.com/file/d/12evh0atrGmivUYMnxHYD7t0vNuQg3DFO/view?usp=sharing">args</a></td>
+    <td><a href="https://drive.google.com/file/d/1a3R-aYGDj3ufY13winwrK3ObqKwDCH2j/view?usp=sharing">log</a></td>
+    <td><a href="https://drive.google.com/file/d/1m4YGklYCYEPX4vNGR4bQWTVD8dnP133z/view?usp=sharing">eval logs</a></td>
   </tr>
     <th colspan='9'> Model without multi-crop and self-labeling </th>
   <tr>
@@ -231,7 +233,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --data-path ${DATAPATH} \
   --output_dir ${OUTPUT} \
   --backbone 'vit_s' \
-  --batch-size 128 \
+  --batch-size 64 \
   --bunch-size 256 \
   --clip_norm 3.0 \
   --epochs 300 \
@@ -239,13 +241,13 @@ python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --lam1 -0.6 \
   --lam2 1.0 \
   --local_crops_number 6 \
-  --lr 0.0005 \
+  --lr 0.0003 \
   --momentum_start 0.996 \
   --momentum_end 1.0 \
   --optim admw \
   --use_momentum_encoder 1 \
   --weight_decay 0.06 \
-  --weight_decay_end 0.06 
+  --weight_decay_end 0.12 
 ```
 
 ViT-B (requires 32 GPUs spliting over 4 nodes for multi-crop training, Top-1 Linear 77.3%)
@@ -258,21 +260,22 @@ python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --data-path ${DATAPATH} \
   --output_dir ${OUTPUT} \
   --backbone 'vit_b' \
-  --batch-size 64 \
+  --batch-size 32 \
   --bunch-size 256 \
   --clip_norm 3.0 \
   --epochs 300 \
   --mme_epochs 300 \
   --lam1 -0.6 \
   --lam2 1.0 \
-  --local_crops_number 6 \
+  --local_crops_number 10 \
   --lr 0.00075 \
   --momentum_start 0.996 \
   --momentum_end 1.0 \
   --optim admw \
   --use_momentum_encoder 1 \
   --weight_decay 0.06 \
-  --weight_decay_end 0.06 
+  --weight_decay_end 0.06 \
+  --drop_path 0.1
 ```
 
 ## Linear Classification
