@@ -64,7 +64,7 @@ TWIST is a novel self-supervised representation learning method by classifying l
     <td>DeiT-S</td>
     <td>21M</td>
     <td>300</td>
-    <td>76.2%</td>
+    <td>76.3%</td>
     <td><a href="https://drive.google.com/file/d/1u6i6ZSCSZAI07Ls-qkG0hAzCEH_Rhk6r/view?usp=sharing">backbone only</a></td>
     <td><a href="https://drive.google.com/file/d/1quoEo6gMCAL9d6kN5FH2gTgxAeCsg-LD/view?usp=sharing">full ckpt</a></td>
     <td><a href="https://drive.google.com/file/d/1zQg-k9vGX5oBR89a6mAmVicJyw3hk7HB/view?usp=sharing">args</a></td>
