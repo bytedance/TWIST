@@ -23,7 +23,7 @@ TWIST is a novel self-supervised representation learning method by classifying l
 </p>
 
 ## Updates
-- 12/4/2022: The performances of ViT-S (DeiT-S) and ViT-B are improved (+0.6 and +1.1 respectively), which is achieved by changing hyper-parameters (reduce the batch-size from 2048 to 1024, and change the drop path rate from 0.0 to 0.1 for ViT-B).
+- 12/4/2022: The performances of ViT-S (DeiT-S) and ViT-B are improved (+0.7 and +1.1 respectively), which is achieved by changing hyper-parameters (reduce the batch-size from 2048 to 1024, and change the drop path rate from 0.0 to 0.1 for ViT-B).
 ## Models and Results
 
 #### Main Models for Representation Learning
