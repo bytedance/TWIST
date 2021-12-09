@@ -145,7 +145,7 @@ class TWIST(nn.Module):
             if args.backbone.startswith('vit'):
                 self.backbone = vit.__dict__[args.backbone](
                         patch_size=args.patch_size, 
-                        norm_layer= (partial(nn.LayerNorm, eps=1e-6)), 
+                        norm_layer=(partial(nn.LayerNorm, eps=1e-6)), 
                         drop_path_rate=args.drop_path,
                         freeze_embedding=args.freeze_embedding,
                 )
@@ -503,14 +503,12 @@ def main(args):
         
         # only dim=1000 evaluate unsupervised classification
         if args.dim == 1000:
-            eval_stats = eval_one_epoch(args, 
-                    model, data_loader_val, device, 
-                    logfn=os.path.join(output_dir, 'detail_log.txt')
-            )
+            eval_stats = eval_one_epoch(args, model, data_loader_val, device, 
+                                        logfn=os.path.join(output_dir, 'detail_log.txt'))
             print(eval_stats)
         
         # saving checkpoint
-        checkpoint_path = os.path.join(output_dir,'checkpoint.pth')
+        checkpoint_path = os.path.join(output_dir, 'checkpoint.pth')
         save_dict = {
                 'model': model_without_ddp.state_dict(),
                 'backbone': model_without_ddp.backbone_weights(),
@@ -534,17 +532,15 @@ def main(args):
         log_stats = {**{f'train_{k}': v for k, v in train_stats.items()}, 'epoch': epoch, 'n_parameters': n_parameters}
         if args.output_dir and utils.is_main_process():
             with (output_dir / "log.txt").open("a") as f:
-                if epoch == 0: # write the arguments parameters
-                    try:
-                        f.write(json.dumps(args.__dict__) + "\n")
-                    except:
-                        pass
+                if epoch == 0:  # write the arguments parameters
+                    f.write(json.dumps(args.__dict__) + "\n")
                 f.write(json.dumps(log_stats) + "\n")
                 for k, v in train_stats.items():
                     writer.add_scalar(k, v, epoch)
 
     total_time = time.time() - start_time
     print('Training time {}'.format(str(datetime.timedelta(seconds=int(total_time)))))
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('TWIST', parents=[get_args_parser()])

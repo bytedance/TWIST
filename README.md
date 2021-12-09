@@ -240,6 +240,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --mme_epochs 300 \
   --lam1 -0.6 \
   --lam2 1.0 \
+  --act gelu \
   --local_crops_number 6 \
   --lr 0.0003 \
   --momentum_start 0.996 \
@@ -267,6 +268,7 @@ python3 -m torch.distributed.launch --nproc_per_node=8 --use_env \
   --mme_epochs 300 \
   --lam1 -0.6 \
   --lam2 1.0 \
+  --act gelu \
   --local_crops_number 10 \
   --lr 0.00075 \
   --momentum_start 0.996 \
